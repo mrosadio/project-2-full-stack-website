@@ -1,4 +1,5 @@
 const express = require('express');
+const isLoggedIn = require('../middleware/isLoggedIn');
 const router = express.Router();
 
 /* GET home page */
@@ -6,14 +7,17 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-/* Get signup page */
-router.get("/signup", (req, res, next) => {
-  res.render("signup");
+
+/* Access profile */
+router.get("/profile", isLoggedIn, (req, res, next) => {
+  const user = req.session.user;
+  res.render("profile", { user });
 })
 
-/* Get login page */
-router.get("/login", (req, res, next) => {
-  res.render("")
+/* Add card */
+router.get("/add-card", (req, res, next) => {
+  res.render("addCard");
 })
+
 
 module.exports = router;
