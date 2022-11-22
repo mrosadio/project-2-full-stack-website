@@ -17,15 +17,22 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
   res.render("profile", { user });
 })
 
-/* Add card */
-router.get("/add-card", (req, res, next) => {
-  res.render("addCard");
+
+
+/* Create card */
+router.get("/add-card", /*isLoggedIn,*/ (req, res, next) => {
+  const user = req.session.currentUser;
+
+  if (!user) {
+    res.render("auth/signup");
+  } else {
+    res.render("addCard", { user });
+  }
 });
 
 router.post("/add-card", (req, res, next) => {
   const { city, date, recommendation, rating } = req.body;
   // const id = req.params.id;
-
   console.log({ city, date, recommendation, rating })
 
   Card.create({ city, date, recommendation, rating })
@@ -39,5 +46,14 @@ router.post("/add-card", (req, res, next) => {
     })
 });
 
+
+/* Get cards */
+router.get('/user-cards', (req, res, next) => {
+  Card.find()
+    .then(cards => {
+        res.render('/cardsList', { cards })
+    })
+    .catch(err => console.log(err));
+});
 
 module.exports = router;
