@@ -6,13 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    {{!-- Link to Mapbox --}}
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
   </head>
 
   <body>
 
     {{{body}}}
-
+    <script src="/js/mapbox.js"></script>
     <script src="/js/script.js"></script>
+    
   </body>
 
 </html>
