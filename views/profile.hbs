@@ -17,16 +17,24 @@
     </div>
 
     <div class="col-md-5">
-        <h3 class=""><a href="/map">Your Map</a></h3>
+        <h3 class=""><a href="/user-cards">Your Map</a></h3>
+
         {{!-- PARTIAL START HERE --}}
+        <div>
+        {{#each cardByUser}}
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Berlin</h5>
-                {{!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> --}}
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima doloremque deserunt neque.</p>
+                <h5 class="card-title">{{city}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{date}}</h6>
+                <p class="card-text">{{recommendation}}</p>
                 <a href="#" class="card-link btn btn-primary btn-sm">Edit Card</a>
-                <a href="#" class="card-link btn btn-danger btn-sm">Delete</a>
+                {{!-- <a href="#" class="card-link btn btn-danger btn-sm">Delete</a> --}}
+                <form action="/user-cards/{{_id}}/delete" method="POST" class="mt-4">
+                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                </form>
             </div>
+        </div>
+        {{/each}}
         </div>
         {{!-- END OF THE PARTIAL --}}
     </div>
