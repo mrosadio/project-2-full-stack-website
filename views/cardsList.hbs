@@ -1,7 +1,23 @@
+<h1 class="">My Map</h1>
+
+<div class="col-md-5">
+    <div id="mapbox" style='width: 400px; height: 300px;'></div>
+</div>
 <div>
     {{#each cards}}
 
-        {{>cardPartial this}}
-        
+        {{!-- {{>cardPartial this}} --}}
+
+        {{!-- Card example without partial --}}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{city}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{date}}</h6>
+                <p class="card-text">{{recommendation}}</p>
+                <a href="#" class="card-link btn btn-primary btn-sm">Edit Card</a>
+                <a href="#" class="card-link btn btn-danger btn-sm">Delete</a>
+            </div>
+        </div>
+        {{!-- END Card example --}}
     {{/each}}
 </div>

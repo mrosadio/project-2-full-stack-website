@@ -51,7 +51,7 @@ router.post("/add-card", (req, res, next) => {
 router.get('/user-cards', (req, res, next) => {
   Card.find()
     .then(cards => {
-        res.render('/cardsList', { cards })
+      res.render('cardsList', { cards })
     })
     .catch(err => console.log(err));
 });
