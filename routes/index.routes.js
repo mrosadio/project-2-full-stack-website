@@ -23,12 +23,14 @@ router.get("/add-card", (req, res, next) => {
 
 router.post("/add-card", (req, res, next) => {
   const { city, date, recommendation, rating } = req.body;
+  // const id = req.params.id;
+
   console.log({ city, date, recommendation, rating })
 
   Card.create({ city, date, recommendation, rating })
     .then(newCard => {
       console.log(newCard);
-      res.redirect("/");
+      res.redirect("/map");
     })
     .catch(err => {
       console.log(err);
