@@ -12,7 +12,8 @@ router.get("/", (req, res, next) => {
 
 /* Access profile */
 router.get("/profile", isLoggedIn, (req, res, next) => {
-  const user = req.session.user;
+  const user = req.session.currentUser;
+
   res.render("profile", { user });
 })
 

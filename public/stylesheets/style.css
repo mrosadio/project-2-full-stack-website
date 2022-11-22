@@ -11,3 +11,7 @@ a {
 h1 {
   color: 15px;
 }
+
+.map-section {
+  justify-content: space-between;
+}

@@ -16,5 +16,14 @@
 
     <button type="submit">Log In</button>
 
+
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+
+    <div>
+      <p>Not yet an user? <a href="/auth/signup">Sign Up</a></p>
+    </div>
+
   </form>
 </div>
