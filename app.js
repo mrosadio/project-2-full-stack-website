@@ -28,6 +28,9 @@ const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
 
 const authRoutes = require("./routes/auth.routes");
+const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
+
+
 app.use("/auth", authRoutes);
 
 // Configure session for login users

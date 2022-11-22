@@ -7,13 +7,17 @@
     <title>{{appTitle}}</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" /> 
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    {{!-- Link to Mapbox --}}
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
   </head>
 
   <body>
 
     {{{body}}}
-
+    <script src="/js/mapbox.js"></script>
     <script src="/js/script.js"></script>
+    
   </body>
 
 </html>
