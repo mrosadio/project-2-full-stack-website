@@ -42,13 +42,12 @@ router.get("/add-card", /*isLoggedIn,*/ (req, res, next) => {
 });
 
 router.post("/add-card", (req, res, next) => {
-  const { city, date, recommendation, rating, userOwner } = req.body;
+  const { city, date, recommendation, rating, userOwnerId, userOwnerName } = req.body;
   // const id = req.params.id;
-  console.log({ city, date, recommendation, rating, userOwner })
+  console.log({ city, date, recommendation, rating, userOwnerId, userOwnerName })
 
-  Card.create({ city, date, recommendation, rating, userOwner })
+  Card.create({ city, date, recommendation, rating, userOwnerId, userOwnerName })
     .then(newCard => {
-      console.log("new card data is:", newCard);
       res.redirect("/user-cards");
     })
     .catch(err => {
@@ -61,6 +60,10 @@ router.post("/add-card", (req, res, next) => {
 router.get('/user-cards', (req, res, next) => {
   Card.find()
     .then(cards => {
+      console.log("cards info", cards)
+      cards.forEach(card => console.log(card.userOwner));
+      //if User.find - userid == cards:userownerid - render user and cards
+      
       res.render('cardsList', { cards })
     })
     .catch(err => console.log(err));
