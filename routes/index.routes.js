@@ -19,10 +19,10 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
   console.log(id);
 
   //find the cards created by that user (username or user id)
-  Card.find()
+  Card.find( {userOwner: `${id}`} )
    .then(cardByUser => {
      //The Card Model has to have the username as one of its values
-    console.log(cardByUser);
+    console.log("card by user", cardByUser);
      res.render("profile", { user, cardByUser });
    })
    .catch(err => console.log(err));
@@ -42,13 +42,13 @@ router.get("/add-card", /*isLoggedIn,*/ (req, res, next) => {
 });
 
 router.post("/add-card", (req, res, next) => {
-  const { city, date, recommendation, rating } = req.body;
+  const { city, date, recommendation, rating, userOwner } = req.body;
   // const id = req.params.id;
-  console.log({ city, date, recommendation, rating })
+  console.log({ city, date, recommendation, rating, userOwner })
 
-  Card.create({ city, date, recommendation, rating })
+  Card.create({ city, date, recommendation, rating, userOwner })
     .then(newCard => {
-      console.log(newCard);
+      console.log("new card data is:", newCard);
       res.redirect("/user-cards");
     })
     .catch(err => {
@@ -71,8 +71,8 @@ router.post('/user-cards/:cardId/delete', (req, res, next) => {
   const id = req.params.cardId;
   console.log("delete_1:",id);
   Card.findByIdAndDelete(id)
-    .then(deletedMovie => {
-      console.log("Card has been deleted: ", deletedMovie);
+    .then(deletedCard => {
+      console.log("Card has been deleted: ", deletedCard);
       res.redirect('/profile');
     })
     .catch(err => next(err));

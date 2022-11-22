@@ -15,6 +15,10 @@ const cardSchema = new Schema(
             type:       Number,
             min:        1,
             max:        5
+        },
+        userOwner: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
         }
     }
 )
