@@ -13,8 +13,19 @@ router.get("/", (req, res, next) => {
 /* Access profile */
 router.get("/profile", isLoggedIn, (req, res, next) => {
   const user = req.session.currentUser;
+  console.log(user);
 
-  res.render("profile", { user });
+  const id = user._id;
+  console.log(id);
+
+  //find the cards created by that user (username or user id)
+  Card.find()
+   .then(cardByUser => {
+     //The Card Model has to have the username as one of its values
+    console.log(cardByUser);
+     res.render("profile", { user, cardByUser });
+   })
+   .catch(err => console.log(err));
 })
 
 
@@ -38,14 +49,13 @@ router.post("/add-card", (req, res, next) => {
   Card.create({ city, date, recommendation, rating })
     .then(newCard => {
       console.log(newCard);
-      res.redirect("/map");
+      res.redirect("/user-cards");
     })
     .catch(err => {
       console.log(err);
       res.render("addCard");
     })
 });
-
 
 /* Get cards */
 router.get('/user-cards', (req, res, next) => {
@@ -55,5 +65,19 @@ router.get('/user-cards', (req, res, next) => {
     })
     .catch(err => console.log(err));
 });
+
+router.post('/user-cards/:cardId/delete', (req, res, next) => {
+  console.log("delete_1:",req.params);
+  const id = req.params.cardId;
+  console.log("delete_1:",id);
+  Card.findByIdAndDelete(id)
+    .then(deletedMovie => {
+      console.log("Card has been deleted: ", deletedMovie);
+      res.redirect('/profile');
+    })
+    .catch(err => next(err));
+});
+
+
 
 module.exports = router;
