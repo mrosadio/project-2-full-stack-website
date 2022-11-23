@@ -10,23 +10,27 @@
 <div>
     {{#each cards}}
 
-        {{!-- {{>cardPartial this}} --}}
+        {{>cardPartial this}}
 
         {{!-- Card example without partial --}}
-        <div class="card" style="width: 18rem;">
+        {{!-- <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">{{city}}</h5>
-                {{#if date}}
-                  <h6 class="card-subtitle mb-2 text-muted">date: <span>{{{date}}}</span></h6>
-                {{/if}}
-                <h6 class="card-subtitle mb-2 text-muted">{{userOwnerName}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted small card-date">{{date}}</h6>
                 <p class="card-text">{{recommendation}}</p>
-                <a href="/user-cards/{{_id}}/edit" class="card-link btn btn-primary btn-sm">Edit Card</a>
-                <form action="/user-cards/{{_id}}/delete" method="POST" class="mt-4">
-                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                </form>
+                <div class="row justify-content-around">
+                    <a href="/user-cards/{{_id}}/edit" class="card-link btn btn-primary btn-sm">Edit Card</a>
+                    <form action="/user-cards/{{_id}}/delete" method="POST" class="mb-0">
+                        <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                    </form>
+                </div>
             </div>
-        </div>
+            <div class="card-footer bg-dark text-white">
+                {{#if userOwnerName}}
+                <h6 class="small mb-0">autor: {{userOwnerName}}</h6>
+                {{/if}}
+            </div>
+        </div> --}}
         {{!-- END Card example --}}
     {{/each}}
 </div>

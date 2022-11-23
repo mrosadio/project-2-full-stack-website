@@ -60,16 +60,6 @@ router.post("/add-card", (req, res, next) => {
 router.get('/user-cards', (req, res, next) => {
   Card.find()
     .then(cards => {
-      
-      // const dateCreate = cards.map((elem) => {
-      //   if(elem.date) {
-      //     // console.log("type of: ", elem.date.setMonth(elem.date))
-      //     console.log("type of: ", elem.date.toLocaleDateString("en-US"))
-      //     elem.date = elem.date.toLocaleDateString("en-US")
-      //   }
-      //   console.log("element2: ", elem.date)
-      // })
-      
       res.render('cardsList', { cards })
     })
     .catch(err => console.log(err));
