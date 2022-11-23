@@ -9,24 +9,6 @@
 </div>
 <div>
     {{#each cards}}
-
-        {{!-- {{>cardPartial this}} --}}
-
-        {{!-- Card example without partial --}}
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{city}}</h5>
-                {{#if date}}
-                  <h6 class="card-subtitle mb-2 text-muted">date: <span>{{{date}}}</span></h6>
-                {{/if}}
-                <h6 class="card-subtitle mb-2 text-muted">{{userOwnerName}}</h6>
-                <p class="card-text">{{recommendation}}</p>
-                <a href="#" class="card-link btn btn-primary btn-sm">Edit Card</a>
-                <form action="/user-cards/{{_id}}/delete" method="POST" class="mt-4">
-                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                </form>
-            </div>
-        </div>
-        {{!-- END Card example --}}
+        {{>cardPartial this}}
     {{/each}}
 </div>
