@@ -60,10 +60,7 @@ router.post("/add-card", (req, res, next) => {
 router.get('/user-cards', (req, res, next) => {
   Card.find()
     .then(cards => {
-      console.log("cards info", cards)
-      cards.forEach(card => console.log(card.userOwner));
-      //if User.find - userid == cards:userownerid - render user and cards
-      
+      // console.log("cards info", cards)
       res.render('cardsList', { cards })
     })
     .catch(err => console.log(err));
