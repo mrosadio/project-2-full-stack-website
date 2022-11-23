@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #fff1e1;
 }
@@ -14,4 +13,16 @@ h1 {
 
 .map-section {
   justify-content: space-between;
+}
+
+nav.navbar {
+  background-color: #2081c3;
+}
+.container {
+  min-height: 100%;
+}
+footer {
+  bottom: 0;
+  width: 100%;
+  background-color: #0a2c42 
 }
