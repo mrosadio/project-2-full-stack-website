@@ -18,7 +18,7 @@
                 <h5 class="card-title">{{city}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{date}}</h6>
                 <p class="card-text">{{recommendation}}</p>
-                <a href="#" class="card-link btn btn-primary btn-sm">Edit Card</a>
+                <a href="/user-cards/{{_id}}/edit" class="card-link btn btn-primary btn-sm">Edit Card</a>
                 {{!-- <a href="#" class="card-link btn btn-danger btn-sm">Delete</a> --}}
                 <form action="/user-cards/{{_id}}/delete" method="POST" class="mt-4">
                     <button class="btn btn-danger btn-sm" type="submit">Delete</button>

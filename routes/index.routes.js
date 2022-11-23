@@ -60,24 +60,82 @@ router.post("/add-card", (req, res, next) => {
 router.get('/user-cards', (req, res, next) => {
   Card.find()
     .then(cards => {
-      // console.log("cards info", cards)
+      
+      // const dateCreate = cards.map((elem) => {
+      //   if(elem.date) {
+      //     // console.log("type of: ", elem.date.setMonth(elem.date))
+      //     console.log("type of: ", elem.date.toLocaleDateString("en-US"))
+      //     elem.date = elem.date.toLocaleDateString("en-US")
+      //   }
+      //   console.log("element2: ", elem.date)
+      // })
+      
       res.render('cardsList', { cards })
     })
     .catch(err => console.log(err));
 });
 
+// DELETE CARD 
 router.post('/user-cards/:cardId/delete', (req, res, next) => {
-  console.log("delete_1:",req.params);
+  // console.log("delete_1:",req.params);
   const id = req.params.cardId;
   console.log("delete_1:",id);
   Card.findByIdAndDelete(id)
-    .then(deletedCard => {
-      console.log("Card has been deleted: ", deletedCard);
-      res.redirect('/profile');
-    })
-    .catch(err => next(err));
+  .then(deletedCard => {
+    console.log("Card has been deleted: ", deletedCard);
+    res.redirect('/profile');
+  })
+  .catch(err => next(err));
 });
 
+
+// EDIT CARD 
+router.get('/user-cards/:cardId/edit', async (req, res, next) => {
+  // console.log("GET CARD INFO: ", req.params);
+  const id = req.params.cardId;
+  
+  try {
+    const card = await Card.findById(id).populate('userOwnerId');
+    console.log("GET CARD INFO: ", card);
+    // const users = await User.find();
+    // const celebritiesNotInCast = filterCelebritiesNotInCast(card, celebrities);
+    res.render('editCard', { card })
+  } catch (err) {
+    console.log(err);
+  }
+})
+
+router.post('/user-cards/:cardId/edit', (req, res, next) => {
+  const id = req.params.cardId;
+  console.log("id", req.params);
+  const { city, date, recommendation, rating, userOwnerId, userOwnerName } = req.body;
+  // console.log('EDITED CARD INFO: ', card)
+  
+  Card.findById(id)
+  .then(card => {
+    const city = card.city;
+    const userOwnerId = card.userOwnerId;
+    const userOwnerName = card.userOwnerName;
+    
+    const cardObj = { city: card.city, date, recommendation, rating, userOwnerId: card.userOwnerId, userOwnerName: card.userOwnerName }
+    // console.log()
+
+    Card.findByIdAndUpdate(id, cardObj)
+      .then(() => {
+        console.log("edited card: ", cardObj)
+        // res.redirect(`/card/${id}`);
+        res.redirect('/profile');
+      })
+      // .catch(err => next(err));
+      .catch(err => console.log(err));
+
+    return cardObj
+  })
+  .catch(err => console.log(err));
+
+  // console.log(cardObj)
+  
+})
 
 
 module.exports = router;
