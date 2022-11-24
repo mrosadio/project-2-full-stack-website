@@ -26,3 +26,41 @@ footer {
   width: 100%;
   background-color: #0a2c42 
 }
+.card-body {
+  background-color: #FBEDD4;
+}
+.card-buttons a {
+  background-color: #FFB95F;
+}
+.card-buttons form button {
+  background-color: #53407E;
+}
+.card-footer {
+  background-color: #FFB95F;
+}
+
+.card {
+  border: 0px;
+  border-radius: 0px;
+  overflow: hidden;
+}
+.card:after {
+  content: "";
+  position:absolute;
+  margin:-15px;
+  width:30px;
+  height:30px;
+  transform:rotate(45deg);
+  background-color:#fff1e1; /* to see where it is */
+  /* box-shadow: 0 0 0 15px #522d5b; */
+}
+
+/* 
+cards colours:
+#FBEDD4 - light yellow
+#FFB95F - dark yellow
+#53407E - purple
+#B3DBCD - light green
+#227469 - dark green 
+#FCF6E3 - beige 
+*/
