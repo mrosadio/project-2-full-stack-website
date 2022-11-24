@@ -10,7 +10,7 @@ axios.get('/user-coordinates')
         card.data.coordinates.forEach((location) => {
         const el     = document.createElement('div');
         el.className = 'marker';
-        console.log("coordinates display:", location.coordinates)
+        console.log("coordinates display:", location)
         // Make a marker for each feature and add it to the map
         new mapboxgl.Marker(el)
             .setLngLat(location.coordinates)
