@@ -81,9 +81,10 @@ router.post("/add-card", (req, res, next) => {
 /* -------------------------------- */
 
 router.get('/user-cards', (req, res, next) => {
+  const user = req.session.currentUser;
   Card.find()
     .then(cards => {
-      res.render('cardsList', { cards })
+      res.render('cardsList', { cards, user })
     })
     .catch(err => console.log(err));
 });
@@ -107,7 +108,7 @@ router.get('/user-coordinates', (req, res, next) => {
 // Coordinates of specific user
 router.get('/user-coordinates/:userOwnerId', (req, res, next) => {
   const userId = req.params.userOwnerId;
-  console.log(req.params);
+  // console.log(req.params);
   console.log("user coordinates called of ID: ", userId);
   Card.find({ userOwnerId: userId })
   .then(coordinates => {
@@ -120,9 +121,6 @@ router.get('/user-coordinates/:userOwnerId', (req, res, next) => {
 /* -------------------------------- */
 /* Delete cards                     */
 /* -------------------------------- */
-
-
-// DELETE CARD 
 
 router.post('/user-cards/:cardId/delete', (req, res, next) => {
   // console.log("delete_1:",req.params);
@@ -137,9 +135,11 @@ router.post('/user-cards/:cardId/delete', (req, res, next) => {
 });
 
 
-// EDIT CARD 
+/* -------------------------------- */
+/* Edit cards                       */
+/* -------------------------------- */
 router.get('/user-cards/:cardId/edit', async (req, res, next) => {
-  // console.log("GET CARD INFO: ", req.params);
+  const user = req.session.currentUser;
   const id = req.params.cardId;
   
   try {
@@ -147,7 +147,7 @@ router.get('/user-cards/:cardId/edit', async (req, res, next) => {
     console.log("GET CARD INFO: ", card);
     // const users = await User.find();
     // const celebritiesNotInCast = filterCelebritiesNotInCast(card, celebrities);
-    res.render('editCard', { card })
+    res.render('editCard', { card, user })
   } catch (err) {
     console.log(err);
   }
