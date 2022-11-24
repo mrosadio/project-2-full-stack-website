@@ -5,10 +5,13 @@
 </div>
 
 <div class="col-md-5">
-    <div id="mapbox" style='width: 600px; height: 300px;'></div>
+    <div id="mapbox-general" style='width: 600px; height: 300px;'></div>
 </div>
 <div>
     {{#each cards}}
         {{>cardPartial this}}
     {{/each}}
 </div>
+
+<!-- Link to General Map -->
+<script src="/js/mapbox-general.js"></script>

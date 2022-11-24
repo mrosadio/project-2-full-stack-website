@@ -1,10 +1,10 @@
-
 <h1 class="">Hello {{user.username}}</h1>
+<input id="userOwnerId-input" type="string" name="userOwnerId" value="{{user._id}}" hidden/>
 
 <div class="container mt-4">
   <div class="row map-section">
     <div class="col-md-5">
-        <div id="mapbox" style='width: 400px; height: 300px;'></div>
+        <div id="mapbox-user" style='width: 400px; height: 300px;'></div>
     </div>
 
     <div class="col-md-5">
@@ -26,3 +26,6 @@
     <a class="btn btn-danger btn-sm" href="/auth/logout">Logout</a>
     <a class="btn btn-light btn-sm" href="#"><em>Favourite Users</em></a>
 </div>
+
+<!-- Link to User Map -->
+<script src="/js/mapbox-user.js">   </script>
