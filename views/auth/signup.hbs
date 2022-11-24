@@ -1,28 +1,32 @@
-<div id="form">
-  <h2>Sign Up</h2>
+<div id="form" class="trav-card bg-col1">
+  <h2 class="mb-5">Sign Up</h2>
   <form action="/auth/signup" method="POST">
 
-    <label> Username
+    <label class="d-flex justify-content-between"> Username
       <input type="text" name="username" placeholder="Your username" />
     </label>
 
-    <label> Email
+    <label class="d-flex justify-content-between"> Email
       <input type="email" name="email" placeholder="Your email" />
     </label>
 
-    <label> Password
+    <label class="d-flex justify-content-between"> Password
       <input type="password" name="password" placeholder="Your password" />
     </label>
 
-    <button type="submit">Sign Up</button>
+    <hr class="w-100">
+    <hr class="w-100">
+    <hr class="w-100">
+
+    <button class="btn btn-col4 text-white mt-3" type="submit">Sign Up</button>
 
 
     {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
+      <p class="error mt-2">{{errorMessage}}</p>
     {{/if}}
 
-    <div>
-      <p>Already an user? <a href="/auth/login">Login</a></p>
+    <div class="mt-2">
+      <p><em>Already an user? <a href="/auth/login">Login</a></em></p>
     </div>
 
   </form>

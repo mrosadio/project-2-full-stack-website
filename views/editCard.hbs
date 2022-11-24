@@ -1,25 +1,22 @@
-<h2 class="mb-5">Edit your card: {{card.city}}</h2>
-{{!-- <p>Here you can edit the card: {{card._id}}</p> --}}
+<div id="login-form" class="trav-card bg-col1">
+  <h2 class="mb-5">Edit your card: {{card.city}}</h2>
 
-<div class="row">
-    <div class="col-md-6">
-        <form class="d-flex flex-column" action="/user-cards/{{card._id}}/edit" method="POST">
-            {{!-- <label for="city-input">City</label> --}}
-            <input id="city-input" type="text" name="city" disabled value="{{card.city}}" hidden/>
 
-            <label class="mt-3" for="recommendation-input">Recommendation</label>
-            <input id="recommendation-input" type="text" name="recommendation"  value="{{card.recommendation}}"/>
+    <form class="d-flex flex-column" action="/user-cards/{{card._id}}/edit" method="POST">
+        <input id="city-input" type="text" name="city" disabled value="{{card.city}}" hidden/>
 
-            <label class="mt-3" for="rating-input">Rate</label>
-            <input id="rating-input" type="Number" name="rating" placeholder="{{card.rating}}" min="1" max="5" value="{{card.rating}}"/>
+        <label class="d-flex justify-content-between" for="recommendation-input">Recommendation</label>
+        <input id="recommendation-input" type="text" name="recommendation"  value="{{card.recommendation}}"/>
 
-            <label class="mt-3" for="date-input">Date - current date: {{card.date}}</label>
-            <input id="date-input" type="date" name="date" value="{{card.date}}"/>
+        <label class="d-flex justify-content-between" for="rating-input">Rate</label>
+        <input id="rating-input" type="Number" name="rating" placeholder="{{card.rating}}" min="1" max="5" value="{{card.rating}}"/>
 
-            <input id="userOwnerId-input" type="string" name="userOwnerId" value="{{card.userOwnerId}}" hidden/>
-            <input id="userOwnerName-input" type="string" name="userOwnerName" value="{{card.userOwnerName}}" hidden/>
+        <label class="d-flex justify-content-between" for="date-input">Date - current date: {{card.date}}</label>
+        <input id="date-input" type="date" name="date" value="{{card.date}}"/>
 
-            <button class="btn btn-dark mt-5" type="submit">Submit</button>
-        </form>
-    </div>
+        <input id="userOwnerId-input" type="string" name="userOwnerId" value="{{card.userOwnerId}}" hidden/>
+        <input id="userOwnerName-input" type="string" name="userOwnerName" value="{{card.userOwnerName}}" hidden/>
+
+        <button class="btn btn-dark mt-5" type="submit">Submit</button>
+    </form>
 </div>

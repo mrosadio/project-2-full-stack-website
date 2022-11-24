@@ -1,22 +1,22 @@
-<h1>{{appTitle}} 🧳</h1>
-<p>Ironhack Project 2</p>
-
-<!---  Search field      -->
-<div class="form-row">
-    <div class="col-md-3 mb-3">
-      <label for="validationTooltip03">City</label>
-      <input type="text" class="form-control" required>
-    </div>
-</div>
-
-<!---  Map                -->
-<div class="enveloppe">
-  <div id="mapbox-general" style='width: 1000px; height: 600px;'></div>
+<div class="">
+  <h1>{{appTitle}}</h1>
+  <p class="text-center">Add recommendations and collect cards from the cities you've visited. You can review other travelers recommendations</p>
 </div>
 
 
-<!---  Create card        -->
-<a class="btn btn-secondary mt-3 mb-3" href="/add-card">Create</a>
+
+<div class="row">
+  <div class="col-md-8 enveloppe">
+    <!---  Map                -->
+    <div id="mapbox-general" style='height: 400px;'></div>
+  </div>
+  <div class="col-md-4">
+    <!---  Create card        -->
+    <a class="btn btn-col1 text-white" href="/add-card">Create a new card</a>
+    <a class="btn btn-col2 text-white" href="/user-cards">Visit users cards</a>
+  </div>
+</div>
+
 
 <!-- Link to General Map -->
 <script src="/js/mapbox-general.js"></script>

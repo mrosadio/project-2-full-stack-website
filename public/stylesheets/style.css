@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+@font-face { 
+  font-family: 'Lane';
+  src: url('/public/fonts/LANE_E') format('woff');
+  }
+
 :root {
   --main-color: #FBEDD4;
   --color-theme-1: #FFB95F;
@@ -5,19 +11,44 @@
   --color-theme-3: #B3DBCD;
   --color-theme-4: #227469;
   --color-theme-5: #FCF6E3;
+
+  /* --main-color: #26528C;
+  --color-theme-1: #3C92A6;
+  --color-theme-2: #F2D399;
+  --color-theme-3: #D9AB73;
+  --color-theme-4: #A67665; */
+}
+
+.btn-col0, .bg-col0 {
+  background-color: var(--main-color);
+}
+.btn-col1, .bg-col1 {
+  background-color: var(--color-theme-1);
+}
+.btn-col2, .bg-col2 {
+  background-color: var(--color-theme-2);
+}
+.btn-col3, .bg-col3 {
+  background-color: var(--color-theme-3);
+}
+.btn-col4, .bg-col4 {
+  background-color: var(--color-theme-4);
 }
 
 body {
-  font:             14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* font:             14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  font-family: 'PT Sans Narrow', sans-serif;
   background-color: var(--color-theme-5);
 }
 
 a {
-  color:            var(--color-theme-4);
+  color: var(--color-theme-4);
 }
 
 h1 {
-  color:            15px;
+  font-size: 4em;
+  text-align: center;
+  font-weight: 700;
 }
 
 nav.navbar {
@@ -25,16 +56,23 @@ nav.navbar {
   background-color: var(--color-theme-4);
 }
 .container {
-  min-height:       100%;
+  min-height: 100%;
+  margin:     30px auto;
 }
 footer {
   bottom:           0;
   width:            100%;
   background-color: var(--color-theme-4);
 }
-
+.profile-cards >div {
+  background-color: var(--color-theme-5);
+}
 .card-body {
-  background-color: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+  /* background-color: var(--main-color); */
 }
 .card-buttons a {
   background-color: var(--color-theme-1);
@@ -42,10 +80,13 @@ footer {
 .card-buttons form button {
   background-color: var(--color-theme-2);
 }
+.card-text {
+  overflow: auto;
+}
 .card-footer {
+  padding: 5px 15px;
   background-color: var(--color-theme-1);
 }
-
 .card {
   border: 0px;
   border-radius: 0px;
@@ -62,9 +103,35 @@ footer {
   /* box-shadow: 0 0 0 15px #522d5b; */
 }
 
+
+/* LOGIN / SIGN UP FORMS */
+#form h2, #login-form h2 {
+  font-weight: 700;
+}
+.trav-card {
+  width: 35%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid var(--color-theme-4);
+  box-shadow: 2px 2px 5px var(--color-theme-2);
+}
+.trav-card form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.trav-card form input {
+  width: 70%;
+  border: 0px solid var(--color-theme-2);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+
 /* ------------- */
 /*     Maps      */
 /* ------------- */
+
 
 .enveloppe {
 	padding:        1em;
@@ -96,19 +163,17 @@ footer {
                      transparent 0, 
                      transparent 4em);
 	width:          1060px;
+
+#map {
+  font-family:  'PT Sans Narrow', sans-serif;
+  position:     absolute;
+  top:          0;
+  bottom:       0;
+  width:        100%;
 }
 
 .map-section {
   justify-content: space-between;
-}
-
-#geocoder {
-    position:      absolute;
-    z-index:       1;
-    width:         50%;
-    left:          50%;
-    margin-left:   -25%;
-    top:           10px;
 }
 
 .mapboxgl-ctrl-geocoder {
