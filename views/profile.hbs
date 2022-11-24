@@ -1,4 +1,11 @@
-<h1 class="text-left">Hello {{user.username}} !</h1>
+<header class="mb-3">
+  <h1 class="text-left">Hello {{user.username}} !</h1>
+  <div class="row justify-content-between px-3">
+    <p class="">Review all the places you've commented on</p>
+    <a class="btn btn-col4 text-white" href="/add-card">Add New Card</a>
+  </div>
+</header>
+
 <input id="userOwnerId-input" type="string" name="userOwnerId" value="{{user._id}}" hidden/>
 
 <div class="row map-section">
@@ -14,18 +21,16 @@
 
   <div class="col-md-7">
       <div id="mapbox-user" style='height: 300px;'></div>
+      
+      <div class="row mt-3 pr-3 ml-auto justify-content-end">
+        <a class="btn btn-danger btn-sm" href="/auth/logout">Logout</a>
+        {{!-- <a class="btn btn-light btn-sm" href="#"><em>Favourite Users</em></a> --}}
+      </div>
   </div>
   
 </div>
 
-<div class="row">
-  <a class="btn btn-success" href="/add-card">Add New Card</a>
-</div>
 
-<div class="row mb-3">
-  <a class="btn btn-danger btn-sm" href="/auth/logout">Logout</a>
-  <a class="btn btn-light btn-sm" href="#"><em>Favourite Users</em></a>
-</div>
 
 <!-- Link to User Map -->
 <script src="/js/mapbox-user.js">   </script>

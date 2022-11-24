@@ -71,8 +71,8 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 200px;
-  background-color: var(--main-color);
+  height: 250px;
+  /* background-color: var(--main-color); */
 }
 .card-buttons a {
   background-color: var(--color-theme-1);
@@ -80,7 +80,11 @@ footer {
 .card-buttons form button {
   background-color: var(--color-theme-2);
 }
+.card-text {
+  overflow: auto;
+}
 .card-footer {
+  padding: 5px 15px;
   background-color: var(--color-theme-1);
 }
 .card {
@@ -141,12 +145,12 @@ footer {
 }
 
 #geocoder {
-    position:      absolute;
+    /* position:      absolute;
     z-index:       1;
     width:         50%;
     left:          50%;
     margin-left:   -25%;
-    top:           10px;
+    top:           10px; */
 }
 
 .mapboxgl-ctrl-geocoder {
