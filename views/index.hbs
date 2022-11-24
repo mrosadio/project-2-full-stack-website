@@ -3,8 +3,10 @@
   <p class="text-center">Add recommendations and collect cards from the cities you've visited. You can review other travelers recommendations</p>
 </div>
 
+
+
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-8 enveloppe">
     <!---  Map                -->
     <div id="mapbox-general" style='height: 400px;'></div>
   </div>
@@ -18,3 +20,20 @@
 
 <!-- Link to General Map -->
 <script src="/js/mapbox-general.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+  let cardsDate = document.getElementsByClassName('card-date');
+  for (let i = 0; i < cardsDate.length; i++) {
+    cardsDate[i].innerText = cardsDate[i].innerText.slice(4, 15);
+  }
+
+  let popupCard = document.querySelectorAll('.mapboxgl-popup-content h3')
+  for (var i = popupCard.length - 1; i >= 0; i--) {
+    let cityName = popupCard[i].innerText.split(',')[0]
+    popupCard[i].innerText = cityName;
+  }
+  console.log("project-2-full-stack-website JS imported successfully!");
+});
+</script>

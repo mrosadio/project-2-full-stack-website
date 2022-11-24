@@ -132,6 +132,38 @@ footer {
 /*     Maps      */
 /* ------------- */
 
+
+.enveloppe {
+	padding:        1em;
+	border:         16px solid transparent;
+	border-image:   16 repeating-linear-gradient(
+                     45deg, 
+                     #65a6dd 0, 
+                     #65a6dd 1em, 
+                     transparent 0, 
+                     transparent 2em,
+                     #f64c2f 0, 
+                     #f64c2f 3em, 
+                     transparent 0, 
+                     transparent 4em);
+	max-width:        fit-content;
+}
+
+.enveloppe-card {
+	padding:        1em;
+	border:         16px solid transparent;
+	border-image:   16 repeating-linear-gradient(
+                     45deg, 
+                     #65a6dd 0, 
+                     #65a6dd 1em, 
+                     transparent 0, 
+                     transparent 2em,
+                     #f64c2f 0, 
+                     #f64c2f 3em, 
+                     transparent 0, 
+                     transparent 4em);
+	width:          1060px;
+
 #map {
   font-family:  'PT Sans Narrow', sans-serif;
   position:     absolute;
@@ -144,25 +176,17 @@ footer {
   justify-content: space-between;
 }
 
-#geocoder {
-    /* position:      absolute;
-    z-index:       1;
-    width:         50%;
-    left:          50%;
-    margin-left:   -25%;
-    top:           10px; */
-}
-
 .mapboxgl-ctrl-geocoder {
   min-width:       100%;
 }
 
 .marker {
-  background-image: url("/images/mapbox-icon.png");
+  background-image: url("/images/airfield.svg");
+  fill:           #53407E;
   background-size:  cover;
-  width:            50px;
-  height:           50px;
-  border-radius:    50%;
+  width:            30px;
+  height:           30px;
+  border-radius:    10%;
   cursor:           pointer;
 }
 
@@ -170,8 +194,8 @@ footer {
   max-width:        200px;
 }
 
-.mapboxgl-popup-content {
+.mapboxgl-popup-content h3 {
   text-align:       center;
-  font-family:      'Open Sans', sans-serif;
+  font-size:        22px;
 }
 
