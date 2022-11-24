@@ -7,6 +7,7 @@ const express     = require('express');
 const isLoggedIn  = require('../middleware/isLoggedIn');
 const router      = express.Router();
 const Card        = require("../models/Card.model");
+const User = require('../models/User.model');
 
 
 /* -------------------------------- */
@@ -45,7 +46,7 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
 /* -------------------------------- */
 
 router.get("/add-card", (req, res, next) => {
-  const user = req.session.currentUser;
+  const user   = req.session.currentUser;
   if (!user) {
     res.render("auth/signup");
   } else {
@@ -88,9 +89,22 @@ router.get('/user-cards', (req, res, next) => {
 /* Retrieve all coordinates of user */
 /* -------------------------------- */
 
+// Coordinates of all users
 router.get('/user-coordinates', (req, res, next) => {
-  console.log("user coordinates called")
   Card.find()
+  .then(coordinates => {
+    res.json({ coordinates});
+  })
+  .catch(err => console.log(err));
+});
+
+
+// Coordinates of specific user
+router.get('/user-coordinates/:userOwnerId', (req, res, next) => {
+  const userId = req.params.userOwnerId;
+  console.log(req.params);
+  console.log("user coordinates called of ID: ", userId);
+  Card.find({ userOwnerId: userId })
   .then(coordinates => {
       res.json({ coordinates });
   })
@@ -115,12 +129,7 @@ router.post('/user-cards/:cardId/delete', (req, res, next) => {
         res.redirect('/profile');
       })
       .catch(err => next(err));
-=======
-  .then(deletedCard => {
-    console.log("Card has been deleted: ", deletedCard);
-    res.redirect('/profile');
-  })
-  .catch(err => next(err));
+
 });
 
 
