@@ -30,7 +30,7 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
   console.log(id);
 
   // Find the cards created by that user (username or user id)
-  Card.find( {userOwner: `${id}`} )
+  Card.find( {userOwnerId: `${id}`} )
    .then(cardByUser => {
      // The Card Model has to have the username as one of its values
       console.log("card by user", cardByUser);
@@ -44,8 +44,9 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
 /* Create card                      */
 /* -------------------------------- */
 
-router.get("/add-card", (req, res, next) => {
+router.get("/add-card", isLoggedIn, (req, res, next) => {
   const user = req.session.currentUser;
+  const id = user._id;
   if (!user) {
     res.render("auth/signup");
   } else {
@@ -59,6 +60,7 @@ router.post("/add-card", (req, res, next) => {
 
   // Coordinates stored as array of strings. Convert to number
   coordinates = coordinates.split(",").map(x => Number(x));
+  console.log("coordinates:", coordinates)
   Card.create({ city, date, recommendation, rating, userOwnerId, userOwnerName, coordinates })
     .then(newCard => {
       res.redirect("/user-cards");
@@ -115,12 +117,12 @@ router.post('/user-cards/:cardId/delete', (req, res, next) => {
         res.redirect('/profile');
       })
       .catch(err => next(err));
-=======
-  .then(deletedCard => {
-    console.log("Card has been deleted: ", deletedCard);
-    res.redirect('/profile');
-  })
-  .catch(err => next(err));
+
+  //     .then(deletedCard => {
+  //   console.log("Card has been deleted: ", deletedCard);
+  //   res.redirect('/profile');
+  // })
+  // .catch(err => next(err));
 });
 
 
