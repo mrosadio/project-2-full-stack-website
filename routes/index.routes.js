@@ -14,7 +14,8 @@ const Card        = require("../models/Card.model");
 /* -------------------------------- */
 
 router.get("/", (req, res, next) => {
-  res.render("index");
+  const user = req.session.currentUser;
+  res.render("index", { user });
 });
 
 
