@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+@font-face { 
+  font-family: 'Lane';
+  src: url('/public/fonts/LANE_E') format('woff');
+  }
+
 :root {
   --main-color: #FBEDD4;
   --color-theme-1: #FFB95F;
@@ -7,17 +13,36 @@
   --color-theme-5: #FCF6E3;
 }
 
+.btn-col1 {
+  background-color: var(--color-theme-1);
+}
+.btn-col2 {
+  background-color: var(--color-theme-2);
+}
+.btn-col3 {
+  background-color: var(--color-theme-3);
+}
+.btn-col4 {
+  background-color: var(--color-theme-4);
+}
+.btn-col5 {
+  background-color: var(--color-theme-5);
+}
+
 body {
-  font:             14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* font:             14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  font-family: 'PT Sans Narrow', sans-serif;
   background-color: var(--color-theme-5);
 }
 
 a {
-  color:            var(--color-theme-4);
+  color: var(--color-theme-4);
 }
 
 h1 {
-  color:            15px;
+  font-size: 4em;
+  text-align: center;
+  font-weight: 700;
 }
 
 nav.navbar {
@@ -25,7 +50,8 @@ nav.navbar {
   background-color: var(--color-theme-4);
 }
 .container {
-  min-height:       100%;
+  min-height: 100%;
+  margin:     30px auto;
 }
 footer {
   bottom:           0;
@@ -67,10 +93,11 @@ footer {
 /* ------------- */
 
 #map {
-  position:        absolute;
-  top:             0;
-  bottom:          0;
-  width:           100%;
+  font-family:  'PT Sans Narrow', sans-serif;
+  position:     absolute;
+  top:          0;
+  bottom:       0;
+  width:        100%;
 }
 
 .map-section {
