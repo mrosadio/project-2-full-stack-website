@@ -1,10 +1,19 @@
+:root {
+  --main-color: #FBEDD4;
+  --color-theme-1: #FFB95F;
+  --color-theme-2: #53407E;
+  --color-theme-3: #B3DBCD;
+  --color-theme-4: #227469;
+  --color-theme-5: #FCF6E3;
+}
+
 body {
   font:             14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #fff1e1;
+  background-color: var(--color-theme-5);
 }
 
 a {
-  color:            #00b7ff;
+  color:            var(--color-theme-4);
 }
 
 h1 {
@@ -12,7 +21,8 @@ h1 {
 }
 
 nav.navbar {
-  background-color: #2081c3;
+  /* background-color: #2081c3; */
+  background-color: var(--color-theme-4);
 }
 .container {
   min-height:       100%;
@@ -20,20 +30,20 @@ nav.navbar {
 footer {
   bottom:           0;
   width:            100%;
-  background-color: #0a2c42 
+  background-color: var(--color-theme-4);
 }
 
 .card-body {
-  background-color: #FBEDD4;
+  background-color: var(--main-color);
 }
 .card-buttons a {
-  background-color: #FFB95F;
+  background-color: var(--color-theme-1);
 }
 .card-buttons form button {
-  background-color: #53407E;
+  background-color: var(--color-theme-2);
 }
 .card-footer {
-  background-color: #FFB95F;
+  background-color: var(--color-theme-1);
 }
 
 .card {
@@ -48,20 +58,9 @@ footer {
   width:30px;
   height:30px;
   transform:rotate(45deg);
-  background-color:#fff1e1; /* to see where it is */
+  background-color:var(--color-theme-5); /* to see where it is */
   /* box-shadow: 0 0 0 15px #522d5b; */
 }
-
-/* 
-cards colours:
-#FBEDD4 - light yellow
-#FFB95F - dark yellow
-#53407E - purple
-#B3DBCD - light green
-#227469 - dark green 
-#FCF6E3 - beige 
-*/
-
 
 /* ------------- */
 /*     Maps      */
