@@ -32,9 +32,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
-            <a class="nav-link text-white" href="/profile">Profile<span class="sr-only">(current)</span></a>
-            <a class="nav-link text-white" href="/auth/login">Login</a>
-            <a class="nav-link text-white" href="/auth/signup">Sign Up</a>
+            {{#if user}}
+              <a class="nav-link text-white" href="/profile">Profile<span class="sr-only">(current)</span></a>
+            {{else}}
+              <a class="nav-link text-white" href="/auth/login">Login</a>
+              <a class="nav-link text-white" href="/auth/signup">Sign Up</a>
+            {{/if}}
           </div>
         </div>
     </nav>
