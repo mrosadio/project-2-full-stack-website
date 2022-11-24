@@ -12,15 +12,13 @@ const map       = new mapboxgl.Map({
     container:    "mapbox-user",
     style:        "mapbox://styles/micaela-rosadio/clatuj1mq000214ofqth2s6z0",
     center:       [13.4, 52.5], // starting position [lng, lat]
-    zoom:         5 // starting zoom
+    zoom:         2 
   });
 
 
 /* ------------------------ */
-/* 4. Mark cities of user   */
+/* 2. Mark cities of user   */
 /* ------------------------ */
-
-// 4.2. User coordinates
 
 const userOwnerId = document.getElementById("userOwnerId-input").value
 
@@ -29,13 +27,13 @@ axios.get(`/user-coordinates/${userOwnerId}`)
         card.data.coordinates.forEach((location) => {
         const el     = document.createElement('div');
         el.className = 'marker';
-        console.log("coordinates display:", location.coordinates)
-        // Make a marker for each feature and add it to the map
+
+        let city = location.city.split(',')[0];
         new mapboxgl.Marker(el)
             .setLngLat(location.coordinates)
             .setPopup(
               new mapboxgl.Popup({ offset: 25 }) // add popups
-                          .setHTML(`<h3>${location.city}</h3>`)
+                          .setHTML(`<h3>${city}</h3>`)
             )
         .addTo(map); 
       })
@@ -44,12 +42,11 @@ axios.get(`/user-coordinates/${userOwnerId}`)
 
 
 /* ------------------------ */
-/* 2. Add the Geocoder      */  
+/* 3. Add the Geocoder      */  
 /* ------------------------ */
 
 const geocoder = new MapboxGeocoder({
     accessToken:    mapboxgl.accessToken, // Set the access token
-    placeholder:    'Which city did you visit?',
     language:       'en-EN',
     mapboxgl:       mapboxgl,             // Set the mapbox-gl instance
     marker:         true                  // Do not use the default marker style
@@ -61,7 +58,7 @@ const geocoder = new MapboxGeocoder({
   
   
   /* ------------------------ */
-  /* 3. Create events and 
+  /* 4. Create events and 
       add marker at location 
   /* ------------------------ */
   
@@ -71,7 +68,6 @@ const geocoder = new MapboxGeocoder({
     geocoder.on('result', (event) => {
       document.getElementById("geocoder-input").value    = event.result.place_name; 
       document.getElementById("coordinates").value       = event.result.center; 
-      //map.getSource('single-point').setData(event.result.geometry);
     });
   });
   

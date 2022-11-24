@@ -6,4 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cardsDate[i].innerText = cardsDate[i].innerText.slice(4, 15);
   }
   console.log("project-2-full-stack-website JS imported successfully!");
+  
 });
+

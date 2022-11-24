@@ -1,9 +1,3 @@
-/* 
-1. Create hidden html element that contains the user ID
-2. Make an axios request including the using ID
-3. Add the userID in the route
-*/
-
 //const { default: axios } = require("axios");
 
 /* ------------------------ */
@@ -16,19 +10,16 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWljYWVsYS1yb3NhZGlvIiwiYSI6ImNsYXF1eXg4azAwZ
 /* 1. Initialize map           */
 /* --------------------------- */
 
-
-console.log("mapbox: ", document.getElementById("mapbox-general"))
-
 const generalMap = new mapboxgl.Map({
   container:     "mapbox-general",
   style:         "mapbox://styles/micaela-rosadio/clatuj1mq000214ofqth2s6z0",
   center:       [13.4, 52.5],
-  zoom:         2
+  zoom:         1
 })
 
 
 /* --------------------------- */
-/* 4. Mark cities of all users */
+/* 2. Mark cities of all users */
 /* --------------------------- */
 
 axios.get('/user-coordinates')
@@ -36,13 +27,13 @@ axios.get('/user-coordinates')
         card.data.coordinates.forEach((location) => {
         const el     = document.createElement('div');
         el.className = 'marker';
-        console.log("coordinates display:", location.coordinates)
-        // Make a marker for each feature and add it to the map
+
+        let city = location.city.split(',')[0];
         new mapboxgl.Marker(el)
             .setLngLat(location.coordinates)
             .setPopup(
               new mapboxgl.Popup({ offset: 25 }) // add popups
-                          .setHTML(`<h3>${location.city}</h3>`)
+                          .setHTML(`<h3>${city}</h3>`)
             )
         .addTo(generalMap); 
       })

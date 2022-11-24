@@ -10,10 +10,30 @@
 </div>
 
 <!---  Map                -->
-<div id="mapbox-general" style='width: 1000px; height: 600px;'></div>
+<div class="enveloppe">
+  <div id="mapbox-general" style='width: 1000px; height: 600px;'></div>
+</div>
+
 
 <!---  Create card        -->
 <a class="btn btn-secondary mt-3 mb-3" href="/add-card">Create</a>
 
 <!-- Link to General Map -->
 <script src="/js/mapbox-general.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+  let cardsDate = document.getElementsByClassName('card-date');
+  for (let i = 0; i < cardsDate.length; i++) {
+    cardsDate[i].innerText = cardsDate[i].innerText.slice(4, 15);
+  }
+
+  let popupCard = document.querySelectorAll('.mapboxgl-popup-content h3')
+  for (var i = popupCard.length - 1; i >= 0; i--) {
+    let cityName = popupCard[i].innerText.split(',')[0]
+    popupCard[i].innerText = cityName;
+  }
+  console.log("project-2-full-stack-website JS imported successfully!");
+});
+</script>
