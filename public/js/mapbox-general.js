@@ -21,7 +21,7 @@ console.log("mapbox: ", document.getElementById("mapbox-general"))
 
 const generalMap = new mapboxgl.Map({
   container:     "mapbox-general",
-  style:         "mapbox://styles/mapbox/streets-v11",
+  style:         "mapbox://styles/micaela-rosadio/clatuj1mq000214ofqth2s6z0",
   center:       [13.4, 52.5],
   zoom:         2
 })

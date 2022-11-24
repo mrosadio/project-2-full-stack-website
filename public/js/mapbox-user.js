@@ -10,7 +10,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWljYWVsYS1yb3NhZGlvIiwiYSI6ImNsYXF1eXg4azAwZ
 
 const map       = new mapboxgl.Map({
     container:    "mapbox-user",
-    style:        "mapbox://styles/mapbox/streets-v11",
+    style:        "mapbox://styles/micaela-rosadio/clatuj1mq000214ofqth2s6z0",
     center:       [13.4, 52.5], // starting position [lng, lat]
     zoom:         5 // starting zoom
   });
