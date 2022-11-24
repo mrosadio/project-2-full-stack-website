@@ -1,30 +1,30 @@
-<h1 class="">Hello {{user.username}}</h1>
+<h1 class="text-left">Hello {{user.username}} !</h1>
 <input id="userOwnerId-input" type="string" name="userOwnerId" value="{{user._id}}" hidden/>
 
-<div class="container mt-4">
-  <div class="row map-section">
-    <div class="col-md-5">
-        <div id="mapbox-user" style='width: 400px; height: 300px;'></div>
-    </div>
+<div class="row map-section">
 
-    <div class="col-md-5">
-        <h3 class=""><a href="/user-cards">General Map</a></h3>
-
-        <div>
-          {{#each cardByUser}}
-            {{>cardPartial this}}
-          {{/each}}
-        </div>
-    </div>
+  <div class="col-md-5">
+      {{!-- <h3 class=""><a href="/user-cards">General Map</a></h3> --}}
+      <div class="row profile-cards">
+        {{#each cardByUser}}
+          {{>cardPartial this}}
+        {{/each}}
+      </div>
   </div>
-      <div class="row">
-        <a class="btn btn-success" href="/add-card">Add New Card</a>
-    </div>
+
+  <div class="col-md-7">
+      <div id="mapbox-user" style='height: 300px;'></div>
+  </div>
+  
+</div>
+
+<div class="row">
+  <a class="btn btn-success" href="/add-card">Add New Card</a>
 </div>
 
 <div class="row mb-3">
-    <a class="btn btn-danger btn-sm" href="/auth/logout">Logout</a>
-    <a class="btn btn-light btn-sm" href="#"><em>Favourite Users</em></a>
+  <a class="btn btn-danger btn-sm" href="/auth/logout">Logout</a>
+  <a class="btn btn-light btn-sm" href="#"><em>Favourite Users</em></a>
 </div>
 
 <!-- Link to User Map -->
