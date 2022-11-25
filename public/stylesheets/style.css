@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 @font-face { 
   font-family: 'Lane';
   src: url('/public/fonts/LANE_E') format('woff');
@@ -49,8 +52,14 @@ h1 {
   font-size: 4em;
   text-align: center;
   font-weight: 700;
+  font-family: 'Pacifico', cursive!important;
+  font-family: 'Shadows Into Light', cursive!important;
 }
-
+.navbar-brand {
+  letter-spacing: 3px;
+  font-family: 'Pacifico', cursive!important;
+  font-family: 'Shadows Into Light', cursive!important;
+}
 nav.navbar {
   /* background-color: #2081c3; */
   background-color: var(--color-theme-4);
@@ -146,7 +155,7 @@ footer {
                      #f64c2f 3em, 
                      transparent 0, 
                      transparent 4em);
-  max-width:      1060px;
+	max-width:        1060px;
 }
 
 .enveloppe-card {
@@ -163,6 +172,7 @@ footer {
                      transparent 0, 
                      transparent 4em);
 	width:          1060px;
+}
 
 #map {
   font-family:  'PT Sans Narrow', sans-serif;
@@ -180,6 +190,9 @@ footer {
   min-width:       100%;
 }
 
+#geocoder .mapboxgl-ctrl-geocoder--icon-search {
+  left: 160px!important;
+}
 .marker {
   background-image: url("/images/airfield.svg");
   fill:           #53407E;
@@ -195,7 +208,7 @@ footer {
 }
 
 .mapboxgl-popup-content h3 {
+  font-family: 'PT Sans Narrow', sans-serif;
   text-align:       center;
   font-size:        22px;
 }
-
